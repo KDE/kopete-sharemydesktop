@@ -1,1 +1,6 @@
- 
+<!DOCTYPE kpartgui>
+<kpartgui name="kopete_sharemydesktop" version="1">
+    <ToolBar name="chatToolBar" fullWidth="true">
+        <Action name="shareMyDesktop" />
+    </ToolBar>
+</kpartgui>

@@ -20,6 +20,8 @@
 
 #include "share-my-desktop-plugin.h"
 
+#include "share-my-desktop-gui-client.h"
+
 #include <KAboutData>
 #include <KComponentData>
 #include <KDebug>
@@ -77,6 +79,8 @@ void ShareMyDesktopPlugin::onViewCreated(KopeteView *view)
     }
 
     kDebug() << "Chat is using Telepathy protocol :):):)";
+
+    new ShareMyDesktopGuiClient(session);
 }
 
 

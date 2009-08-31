@@ -2,6 +2,8 @@ project (kopete-plugin-sharemydesktop)
 
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR}
+                     ${CMAKE_CURRENT_SOURCE_DIR}../../protocols/telepathy/KopeteTelepathy/
+                     ${TELEPATHY_QT4_INCLUDE_DIR}
 )
 
 set (kopete_plugin_sharemydesktop_SRCS
@@ -14,7 +16,8 @@ kde4_add_plugin (kopete_sharemydesktop
 )
 
 target_link_libraries (kopete_sharemydesktop
-                       ${TELEPATHY_QT4_LIBS}
+                       kopetetelepathy
+                       ${TELEPATHY_QT4_LIBRARIES}
                        ${KDE4_KDEUI_LIBS}
                        ${KOPETE_LIBRARIES}
 )
