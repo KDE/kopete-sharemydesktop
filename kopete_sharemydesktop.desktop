@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Service
+X-Kopete-Version=1000900
+Icon=krfb
+X-KDE-ServiceTypes=Kopete/Plugin
+X-KDE-Library=kopete_sharemydesktop
+X-KDE-PluginInfo-Author=George Goldberg
+X-KDE-PluginInfo-Email=george.goldberg@collabora.co.uk
+X-KDE-PluginInfo-Name=kopete_sharemydesktop
+X-KDE-PluginInfo-Version=0.1.0
+X-KDE-PluginInfo-Website=http://kopete.kde.org
+X-KDE-PluginInfo-Category=Plugins
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=true
+Name=Share My Desktop
+Comment=Share your desktop with your instant messaging buddies
