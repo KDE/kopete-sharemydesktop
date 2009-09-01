@@ -2,7 +2,6 @@ project (kopete-plugin-sharemydesktop)
 
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR}
-                     ${CMAKE_CURRENT_SOURCE_DIR}../../protocols/telepathy/KopeteTelepathy/
                      ${TELEPATHY_QT4_INCLUDE_DIR}
 )
 
