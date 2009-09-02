@@ -168,10 +168,14 @@ void ShareMyDesktopGuiClient::onAccountReady(Tp::PendingOperation *op)
 
     // Ensure a rfb stream tube channel to this contact.
     QVariantMap parameters;
-    parameters.insert("org.freedesktop.Telepathy.Channel.ChannelType", "org.freedesktop.Telepathy.Channel.Type.StreamTube");
-    parameters.insert("org.freedesktop.Teleapthy.Channel.TargetHandleType", Tp::HandleTypeContact);
-    parameters.insert("org.freedesktop.Telepathy.Channel.TargetHandle", m_contact->handle().first());
-    parameters.insert("org.freedesktop.Telepathy.Channel.Type.StreamTube.Service", "rfb");
+    parameters.insert(QLatin1String(TELEPATHY_INTERFACE_CHANNEL ".ChannelType"),
+                      TELEPATHY_INTERFACE_CHANNEL_TYPE_STREAM_TUBE);
+    parameters.insert(QLatin1String(TELEPATHY_INTERFACE_CHANNEL ".TargetHandleType"),
+                      Tp::HandleTypeContact);
+    parameters.insert(QLatin1String(TELEPATHY_INTERFACE_CHANNEL ".TargetHandle"),
+                      m_contact->handle().at(0));
+    parameters.insert(QLatin1String(TELEPATHY_INTERFACE_CHANNEL_TYPE_STREAM_TUBE ".Service"),
+                      "rfb");
 
     connect(m_account->ensureChannel(parameters),
             SIGNAL(finished(Tp::PendingOperation*)),
