@@ -39,7 +39,7 @@ class ShareMyDesktopGuiClient : public QObject, public KXMLGUIClient
     Q_OBJECT
 
 public:
-    ShareMyDesktopGuiClient(Kopete::ChatSession *parent = 0);
+    ShareMyDesktopGuiClient(const KComponentData &componentData, Kopete::ChatSession *parent = 0);
     ~ShareMyDesktopGuiClient();
 
 private Q_SLOTS:

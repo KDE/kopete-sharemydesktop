@@ -79,7 +79,7 @@ void ShareMyDesktopPlugin::onViewCreated(KopeteView *view)
 
     kDebug() << "Chat is using Telepathy protocol :):):)";
 
-    new ShareMyDesktopGuiClient(session);
+    new ShareMyDesktopGuiClient(ShareMyDesktopPluginFactory::componentData(), session);
 }
 
 

@@ -41,15 +41,16 @@
 #include <TelepathyQt4/PendingReady>
 #include <TelepathyQt4/ReferencedHandles>
 
-ShareMyDesktopGuiClient::ShareMyDesktopGuiClient(Kopete::ChatSession *parent)
+ShareMyDesktopGuiClient::ShareMyDesktopGuiClient(const KComponentData &componentData,
+                                                 Kopete::ChatSession *parent)
  : QObject(parent),
    KXMLGUIClient(parent),
    m_chatSession(parent)
 {
     kDebug();
 
-    // Set the component data to use as the plugin's
-    setComponentData(KGenericFactory<ShareMyDesktopPlugin>::componentData());
+    // Set the component data so KXMLGui can find the correct RC file
+    setComponentData(componentData);
 
     // If the chat session is invalid or empty, this instance should never have happened, but best
     // to be safe and check again anyway.
