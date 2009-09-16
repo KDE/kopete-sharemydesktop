@@ -27,11 +27,13 @@
 
 #include <kopeteaccount.h>
 #include <kopetechatsession.h>
+#include <ui/kopeteview.h>
 
 #include <KAction>
 #include <KActionCollection>
 #include <KDebug>
 #include <KGenericFactory>
+#include <KMessageBox>
 #include <KShortcut>
 
 #include <TelepathyQt4/PendingChannelRequest>
@@ -185,7 +187,18 @@ void ShareMyDesktopGuiClient::onAccountReady(Tp::PendingOperation *op)
 void ShareMyDesktopGuiClient::onEnsureChannelFinished(Tp::PendingOperation *op)
 {
     if (op->isError()) {
-        kWarning() << "Ensuring channel failed:" << op->errorName() << op->errorMessage();
+        kWarning() << "Ensuring channel failed:" << op->errorName() << op->errorMessage();        
+
+        if (op->errorName() == TELEPATHY_ERROR_DISCONNECTED) {
+            KMessageBox::error(m_chatSession->view()->mainWidget(),
+                               i18n("An error occurred sharing your desktop. Please ensure that you have krfb installed."),
+                               i18n("Error - Share My Desktop"));
+        } else {
+            KMessageBox::error(m_chatSession->view()->mainWidget(),
+                               i18n("An unknown error occurred sharing your desktop."),
+                               i18n("Error - Share My Desktop"));
+        }
+
         return;
     }
 }
