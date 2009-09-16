@@ -25,7 +25,7 @@
 #include <KAboutData>
 #include <KComponentData>
 #include <KDebug>
-#include <KGenericFactory>
+#include <KPluginFactory>
 #include <KPluginInfo>
 
 #include <kopetechatsessionmanager.h>
@@ -34,11 +34,10 @@
 #include <ui/kopeteview.h>
 #include <ui/kopeteviewplugin.h>
 
-typedef KGenericFactory<ShareMyDesktopPlugin> ShareMyDesktopPluginFactory;
-static const KAboutData aboutdata("kopete_sharemydesktop", 0, ki18n("Share My Desktop"), "0.1");
-K_EXPORT_COMPONENT_FACTORY(kopete_sharemydesktop, ShareMyDesktopPluginFactory(&aboutdata))
+K_PLUGIN_FACTORY(ShareMyDesktopPluginFactory, registerPlugin<ShareMyDesktopPlugin>(); )
+K_EXPORT_PLUGIN(ShareMyDesktopPluginFactory("kopete_sharemydesktop"))
 
-ShareMyDesktopPlugin::ShareMyDesktopPlugin(QObject *parent, const QStringList &args)
+ShareMyDesktopPlugin::ShareMyDesktopPlugin(QObject *parent, const QVariantList &args)
  : Kopete::Plugin(ShareMyDesktopPluginFactory::componentData(), parent)
 {
     kDebug();

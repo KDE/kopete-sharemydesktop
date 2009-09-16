@@ -23,6 +23,8 @@
 
 #include "kopeteplugin.h"
 
+#include <QtCore/QVariantList>
+
 class KopeteView;
 
 class ShareMyDesktopPlugin : public Kopete::Plugin
@@ -30,7 +32,7 @@ class ShareMyDesktopPlugin : public Kopete::Plugin
     Q_OBJECT
 
 public:
-    ShareMyDesktopPlugin(QObject *parent, const QStringList &args);
+    ShareMyDesktopPlugin(QObject *parent, const QVariantList &args);
     ~ShareMyDesktopPlugin();
 
 private Q_SLOTS:
