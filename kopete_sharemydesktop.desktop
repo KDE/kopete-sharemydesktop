@@ -14,6 +14,7 @@ X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Name=Share My Desktop
+Name[ast]=Compartir el mio escritoriu
 Name[bs]=Dijeli My Desktop
 Name[cs]=Sdílet plochu
 Name[de]=Meine Arbeitsfläche freigeben
